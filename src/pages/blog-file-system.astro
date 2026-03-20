@@ -1,13 +1,13 @@
 ---
-import { getCollection } from "astro:content";
-import TypedBlogPost from "../components/TypedBlogPost.astro";
+import BlogPost from "../components/BlogPost.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
-const blogPosts = await getCollection("blog");
+const posts = Object.values(
+  import.meta.glob("./posts-file-system/*.{mdx,md}", { eager: true }),
+) as any[];
 ---
 
 <MainLayout title="Home">
-  <a href="/blog-file-system">Blog File System</a>
   <!-- component -->
   <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
@@ -17,7 +17,7 @@ const blogPosts = await getCollection("blog");
         From the blog
       </h1>
       <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-        {blogPosts.map((post) => <TypedBlogPost post={post} />)}
+        {posts.map((post) => <BlogPost {...post} />)}
       </div>
     </div>
   </section></MainLayout
