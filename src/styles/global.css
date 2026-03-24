@@ -1,30 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+/* ── Base Reset & Design Tokens ── */
+:root {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-hover: #334155;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-emerald: #10b981;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-text-dim: #64748b;
+  --color-border: #334155;
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
 html {
-    @apply bg-gray-900 px-10;
-    scroll-behavior: smooth
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-    @apply mt-10;
+  @apply mt-0;
 }
 
+/* ── Typography ── */
 h1 {
-    @apply text-3xl text-white my-5;
+  @apply text-4xl font-bold text-white my-6 tracking-tight;
 }
 
 h2 {
-    @apply text-2xl text-blue-500 my-5;
+  @apply text-2xl font-semibold my-5;
+  color: var(--color-accent);
 }
 
 h3 {
-    @apply text-xl text-white my-5;
+  @apply text-xl font-semibold text-white my-4;
 }
 
 p {
-    @apply text-white my-5;
+  @apply text-base leading-relaxed my-4;
+  color: var(--color-text);
 }
 
 a {
-    @apply text-blue-500 hover:underline;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* ── Code Blocks ── */
+pre {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875em;
+}
+
+:not(pre) > code {
+  background-color: var(--color-surface);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  color: var(--color-emerald);
+}
+
+/* ── Lists ── */
+ul {
+  @apply list-disc list-inside my-4;
+  color: var(--color-text-muted);
+}
+
+li {
+  @apply my-1;
+}
+
+/* ── Tag Pills ── */
+.tag {
+  display: inline-block;
+  background-color: var(--color-surface);
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Flat Card ── */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-surface-hover);
+}
+
+/* ── Flat Button ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-accent);
+  color: white;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  transition: background-color 0.15s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--color-accent-hover);
+  text-decoration: none;
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.btn-disabled {
+  background-color: var(--color-surface);
+  color: var(--color-text-dim);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.site-header nav a {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  transition: color 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  color: var(--color-text);
+  background-color: var(--color-surface-hover);
+  text-decoration: none;
+}
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
 }

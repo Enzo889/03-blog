@@ -10,30 +10,42 @@ const { author } = Astro.props;
 const { avatar, bio, github, linkedIn, name, subtitle, twitter } = author.data;
 ---
 
-<div class="max-w-lg mx-auto bg-gray-800 rounded-lg shadow-md p-5">
+<div class="card p-6 text-center">
   <Image
-    class="w-20 h-20 rounded-full mx-auto"
+    class="w-24 h-24 rounded-full mx-auto object-cover"
     src={avatar}
-    alt="Profile picture"
+    alt={`${name}'s profile picture`}
     width={200}
     height={200}
     quality={"mid"}
   />
-  <h2 class="text-center text-2xl font-semibold mt-3">{name}</h2>
-  <p class="text-center text-gray-600 mt-1">{subtitle}</p>
-  <div class="flex justify-center mt-5">
+  <h2 class="text-xl font-semibold mt-4 mb-1 text-white" style="margin-bottom:0.25rem;">{name}</h2>
+  <p class="text-sm" style="color: var(--color-text-dim); margin-top:0.25rem;">{subtitle}</p>
+
+  <div class="flex justify-center gap-3 mt-4 flex-wrap">
     <a
       href={`https://x.com/${twitter}`}
-      class="text-blue-500 hover:text-blue-700 mx-3">Twitter</a
-    >
-    <a href={linkedIn} class="text-blue-500 hover:text-blue-700 mx-3"
-      >LinkedIn</a
-    >
-    <a href={github} class="text-blue-500 hover:text-blue-700 mx-3">GitHub</a>
+      class="btn-outline btn text-xs"
+      style="text-decoration:none; padding: 0.375rem 0.75rem;"
+      target="_blank"
+    >Twitter</a>
+    <a
+      href={linkedIn}
+      class="btn-outline btn text-xs"
+      style="text-decoration:none; padding: 0.375rem 0.75rem;"
+      target="_blank"
+    >LinkedIn</a>
+    <a
+      href={github}
+      class="btn-outline btn text-xs"
+      style="text-decoration:none; padding: 0.375rem 0.75rem;"
+      target="_blank"
+    >GitHub</a>
   </div>
-  <div class="mt-5">
-    <h3 class="text-xl font-semibold">Bio</h3>
-    <p class="text-gray-600 mt-2">{bio}</p>
-  </div>
-  <a href={`/blog/${author.id}`}>All posts by {name}</a>
+
+  <p class="text-sm mt-4" style="color: var(--color-text-muted);">{bio}</p>
+
+  <a href={`/blog/${author.id}`} class="btn text-sm mt-3 inline-block" style="text-decoration:none;">
+    View Posts →
+  </a>
 </div>

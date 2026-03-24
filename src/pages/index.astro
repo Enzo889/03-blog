@@ -10,22 +10,22 @@ const blogPosts = await getCollection(
 ---
 
 <MainLayout title="Home">
-  <nav class="flex flex-col gap-3">
-    <a href="/blog-file-system">Blog File System</a>
-    <a href="/blog/1">Blog Paginate with collections</a>
-    <a href="/authors">Authors List</a>
-  </nav>
-  <!-- component -->
-  <section class="bg-white dark:bg-gray-900">
-    <div class="container px-6 py-10 mx-auto">
-      <h1
-        class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white"
-      >
-        From the blog
-      </h1>
-      <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-        {blogPosts.map((post) => <TypedBlogPost post={post} />)}
-      </div>
+  <section class="mb-12">
+    <h1 class="text-5xl font-extrabold tracking-tight mb-4">
+      Welcome to <span style="color: var(--color-accent);">DevBlog</span>
+    </h1>
+    <p class="text-lg" style="color: var(--color-text-muted); max-width: 36rem;">
+      Explore articles about web development, programming, and modern technologies written by our community of authors.
+    </p>
+  </section>
+
+  <section>
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-semibold text-white" style="margin:0;">Latest Posts</h2>
+      <a href="/blog/1" class="btn text-sm" style="text-decoration:none;">View All →</a>
     </div>
-  </section></MainLayout
->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {blogPosts.map((post) => <TypedBlogPost post={post} />)}
+    </div>
+  </section>
+</MainLayout>

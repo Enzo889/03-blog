@@ -1,27 +1,27 @@
 ---
-title: Construyendo una API REST con Node.js
+title: Building a REST API with Node.js
 date: 2023-06-20
-description: En este tutorial, construiremos una API RESTful utilizando Node.js y Express.
+description: In this tutorial, we will build a RESTful API using Node.js and Express.
 author: bob-williams
 image: "images/post-04.png"
 tags: [Node.js, Express, API, Backend]
 isDraft: false
 ---
 
-# Construyendo una API REST con Node.js
+# Building a REST API with Node.js
 
-En este tutorial, construiremos una API RESTful utilizando Node.js y Express. Una API RESTful es una interfaz de programación de aplicaciones que sigue los principios de REST (Representational State Transfer). Utilizaremos Express, un marco de aplicaciones web de Node.js, para crear nuestra API.
+In this tutorial, we will build a RESTful API using Node.js and Express. A RESTful API is an application programming interface that follows the principles of REST (Representational State Transfer). We will use Express, a Node.js web application framework, to create our API.
 
-## Instalación de Node.js
+## Installing Node.js
 
-Primero, necesitas instalar Node.js en tu sistema. Puedes descargar Node.js desde el [sitio web oficial](https://nodejs.org/).
+First, you need to install Node.js on your system. You can download Node.js from the [official website](https://nodejs.org/).
 
 ```bash
 npm init -y
 npm install express
 ```
 
-Creamos un archivo `index.js` y agregamos el siguiente código:
+We create an `index.js` file and add the following code:
 
 ```javascript
 const express = require("express");
@@ -37,17 +37,17 @@ app.listen(port, () => {
 });
 ```
 
-Para ejecutar la aplicación, ejecuta el siguiente comando:
+To run the application, execute the following command:
 
 ```bash
 node index.js
 ```
 
-Ahora puedes acceder a tu aplicación en `http://localhost:3000`.
+Now you can access your application at `http://localhost:3000`.
 
-## Creación de rutas para la API
+## Creating API Routes
 
-Vamos a crear algunas rutas para nuestra API. Por ejemplo, una ruta para obtener una lista de usuarios y otra ruta para obtener un usuario por su ID.
+Let's create some routes for our API. For example, a route to get a list of users and another route to get a user by their ID.
 
 ```javascript
 app.get("/api/users", (req, res) => {
@@ -63,10 +63,10 @@ app.get("/api/users/:id", (req, res) => {
 });
 ```
 
-Ahora puedes acceder a la API de usuarios en `http://localhost:3000/api/users` y `http://localhost:3000/api/users/1`.
+Now you can access the users API at `http://localhost:3000/api/users` and `http://localhost:3000/api/users/1`.
 
 ## Conclusion
 
-En este tutorial, hemos construido una API RESTful utilizando Node.js y Express. Puedes agregar más rutas y funcionalidades a tu API según tus necesidades. ¡Diviértete construyendo tu API!
+In this tutorial, we have built a RESTful API using Node.js and Express. You can add more routes and functionality to your API as needed. Have fun building your API!
 
-Espero que este tutorial te haya sido útil. Si tienes alguna pregunta, no dudes en dejar un comentario.
+I hope this tutorial has been helpful. If you have any questions, feel free to leave a comment.

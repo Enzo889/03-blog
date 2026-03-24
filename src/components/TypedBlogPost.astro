@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { Formatter } from "../utils/formatter";
 import { Image } from "astro:assets";
+
 interface Props {
   post: CollectionEntry<"blog">;
 }
@@ -9,26 +10,27 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<div class="lg:flex">
+<a href={`/posts/${post.id}`} class="card block" style="text-decoration:none;">
   <Image
     src={post.data.image}
     alt={post.data.title}
-    width={500}
-    height={500}
+    width={600}
+    height={340}
     loading="lazy"
-    class="object-cover w-full h-56 rounded-lg lg:w-64"
+    class="w-full h-48 object-cover"
   />
-
-  <div class="flex flex-col justify-between py-6 lg:mx-6">
-    <a
-      href={`/posts/${post.id}`}
-      class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
-    >
-      {post.data.title}{" "}
-    </a>
-
-    <span class="text-sm text-gray-500 dark:text-gray-300">
+  <div class="p-5">
+    <div class="flex flex-wrap gap-2 mb-3">
+      {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+    <h3 class="text-lg font-semibold text-white mt-0 mb-2" style="margin-top:0;">
+      {post.data.title}
+    </h3>
+    <p class="text-sm mb-3" style="color: var(--color-text-muted); margin-top:0;">
+      {post.data.description}
+    </p>
+    <span class="text-xs" style="color: var(--color-text-dim);">
       {Formatter.FormDate(post.data.date)}
     </span>
   </div>
-</div>
+</a>

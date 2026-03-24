@@ -4,23 +4,25 @@ import { Formatter } from "../utils/formatter";
 const { frontmatter, url } = Astro.props;
 ---
 
-<div class="lg:flex">
-  <img
-    class="object-cover w-full h-56 rounded-lg lg:w-64"
-    src={frontmatter.image}
-    alt=""
-  />
-
-  <div class="flex flex-col justify-between py-6 lg:mx-6">
-    <a
-      href={url}
-      class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
-    >
-      {frontmatter.title}{" "}
-    </a>
-
-    <span class="text-sm text-gray-500 dark:text-gray-300">
-      {Formatter.FormDate(frontmatter.date)}
-    </span>
+<a href={url} class="card block" style="text-decoration:none;">
+  <div class="lg:flex">
+    <img
+      class="object-cover w-full h-48 lg:w-64 lg:h-auto"
+      src={frontmatter.image}
+      alt={frontmatter.title}
+    />
+    <div class="flex flex-col justify-between p-5">
+      <div>
+        <h3 class="text-lg font-semibold text-white mt-0 mb-2" style="margin-top:0;">
+          {frontmatter.title}
+        </h3>
+        <p class="text-sm" style="color: var(--color-text-muted); margin-top:0;">
+          {frontmatter.description}
+        </p>
+      </div>
+      <span class="text-xs mt-3" style="color: var(--color-text-dim);">
+        {Formatter.FormDate(frontmatter.date)}
+      </span>
+    </div>
   </div>
-</div>
+</a>

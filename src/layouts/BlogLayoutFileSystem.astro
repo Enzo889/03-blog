@@ -6,7 +6,8 @@ interface Props {
   frontmatter?: any;
 }
 
-const { title, frontmatter, ...rest } = Astro.props;
+const { title, frontmatter } = Astro.props;
+const pageTitle = frontmatter?.title || title || "Blog Post";
 ---
 
 <html lang="en">
@@ -17,12 +18,29 @@ const { title, frontmatter, ...rest } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
-    <title>{frontmatter.title}</title>
+    <title>{pageTitle} | DevBlog</title>
   </head>
-  <body class="bg-slate-900 text-slate-100 max-w-4xl mx-auto">
-    <main class="p-5">
-      <a href="/" class="text-red-400 underline"> back to home</a>
+  <body>
+    <header class="site-header">
+      <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/" class="text-xl font-bold text-white tracking-tight" style="text-decoration:none;">
+          Dev<span style="color: var(--color-accent);">Blog</span>
+        </a>
+        <nav class="flex items-center gap-1">
+          <a href="/">Home</a>
+          <a href="/blog/1">Blog</a>
+          <a href="/authors">Authors</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-10">
+      <a href="/" class="btn-outline btn text-sm mb-6" style="text-decoration:none;">← Back to Home</a>
       <slot />
     </main>
+
+    <footer class="site-footer max-w-4xl mx-auto px-6">
+      <p style="margin:0;">© {new Date().getFullYear()} DevBlog. Built with Astro.</p>
+    </footer>
   </body>
 </html>

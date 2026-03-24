@@ -3,9 +3,14 @@ import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "A modern tech blog about web development, programming, and software engineering.",
+} = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -14,13 +19,53 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
-    <title>{title}</title>
+    <title>{title} | DevBlog</title>
   </head>
-  <body class="bg-slate-900 text-slate-100 max-w-6xl mx-auto">
-    <main class="p-5">
+  <body>
+    <header class="site-header">
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <a
+          href="/"
+          class="text-xl font-bold text-white tracking-tight"
+          style="text-decoration:none;"
+        >
+          Dev<span style="color: var(--color-accent);">Blog</span>
+        </a>
+        <nav class="flex items-center gap-1">
+          <a href="/" class:list={[currentPath === "/" && "text-white!"]}
+            >Home</a
+          >
+          <a
+            href="/blog/1"
+            class:list={[currentPath.startsWith("/blog") && "text-white!"]}
+            >Blog</a
+          >
+          <a
+            href="/authors"
+            class:list={[currentPath.startsWith("/authors") && "text-white!"]}
+            >Authors</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-10">
       <slot />
     </main>
+
+    <footer class="site-footer max-w-6xl mx-auto px-6">
+      <p style="margin:0;">
+        © {new Date().getFullYear()} DevBlog. Built with Astro. by <a
+          target="_blank"
+          href="https://github.com/enzo889">Enzo Bustamante</a
+        >
+        with <span style="color: var(--color-accent);">❤️</span>
+      </p>
+    </footer>
   </body>
 </html>

@@ -21,44 +21,28 @@ const { blogPosts, author } = Astro.props;
 ---
 
 <MainLayout title={`Posts by ${author.data.name}`}>
-  <section class="bg-gray-900">
-    <div class="container px-6 py-10 mx-auto">
-      <h1 class="text-3xl font-semibold capitalize lg:text-4xl text-white">
-        All Posts by {author.data.name}
-      </h1>
-      <a href="/">Back to Homepage</a>
-
-      <div class="text-md text-gray-400 mb-0 flex flex-row mt-2">
-        <Image
-          class="rounded-full"
-          src={author.data.avatar}
-          quality={"mid"}
-          alt={author.data.name}
-          width={50}
-          height={50}
-        />
-
-        <div class="flex flex-col ml-5">
-          <a>{author.data.name}</a>
-          <span>Listado de todos mis posts</span>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-        {blogPosts.map((post) => <TypedBlogPost post={post} />)}
+  <section class="mb-10">
+    <div class="flex items-center gap-5 mb-6">
+      <Image
+        class="w-16 h-16 rounded-full object-cover"
+        src={author.data.avatar}
+        quality={"mid"}
+        alt={author.data.name}
+        width={100}
+        height={100}
+      />
+      <div>
+        <h1 class="text-3xl font-bold mb-1" style="margin:0;">{author.data.name}</h1>
+        <p class="text-sm" style="color: var(--color-text-muted); margin:0;">
+          All posts by this author
+        </p>
       </div>
     </div>
   </section>
+
+  <section>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {blogPosts.map((post) => <TypedBlogPost post={post} />)}
+    </div>
+  </section>
 </MainLayout>
-
-<style>
-  a {
-    color: oklch(62.3% 0.214 259.815)
-
-     &:hover {
-      @media (hover: hover) {
-        text-decoration-line: underline;
-      }
-    }
-  }
-</style>

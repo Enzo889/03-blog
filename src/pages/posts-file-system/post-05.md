@@ -1,19 +1,19 @@
 ---
-title: CSS Grid Layout - Una guía completa
+title: CSS Grid Layout - A Complete Guide
 date: 2023-06-25
-description: Aprende a utilizar CSS Grid Layout para crear diseños complejos de forma sencilla.
+description: Learn how to use CSS Grid Layout to create complex layouts easily.
 author: Emily Davis
 image: '/assets/images/post-05.png'
 tags: [CSS, Web Design, Frontend]
 ---
 
-# CSS Grid Layout: Una guía completa
+# CSS Grid Layout: A Complete Guide
 
-CSS Grid Layout es una poderosa herramienta que te permite crear diseños complejos de forma sencilla y flexible. En esta guía, aprenderás cómo utilizar CSS Grid Layout para crear diseños de páginas web modernas y responsivas.
+CSS Grid Layout is a powerful tool that allows you to create complex layouts easily and flexibly. In this guide, you will learn how to use CSS Grid Layout to create modern and responsive web page layouts.
 
-## Introducción a CSS Grid
+## Introduction to CSS Grid
 
-CSS Grid Layout es un sistema de diseño bidimensional que te permite crear diseños de páginas web utilizando filas y columnas. Con CSS Grid Layout, puedes crear diseños complejos y flexibles sin necesidad de utilizar floats o frameworks de diseño.
+CSS Grid Layout is a two-dimensional layout system that allows you to create web page layouts using rows and columns. With CSS Grid Layout, you can create complex and flexible layouts without the need for floats or layout frameworks.
 
 ```css
 .container {
@@ -23,11 +23,11 @@ CSS Grid Layout es un sistema de diseño bidimensional que te permite crear dise
 }
 ```
 
-Este grid container creará una cuadrícula con tres columnas y un espacio de 10px entre los elementos de la cuadrícula. También puedes utilizar la propiedad `grid-template-rows` para definir las filas de la cuadrícula.
+This grid container will create a grid with three columns and a 10px gap between grid items. You can also use the `grid-template-rows` property to define the rows of the grid.
 
 ## Grid Items
 
-Los elementos dentro de un grid container se denominan grid items. Puedes colocar los grid items en la cuadrícula utilizando las propiedades `grid-column` y `grid-row`.
+Elements inside a grid container are called grid items. You can place grid items on the grid using the `grid-column` and `grid-row` properties.
 
 ```css
 .item {
@@ -36,11 +36,11 @@ Los elementos dentro de un grid container se denominan grid items. Puedes coloca
 }
 ```
 
-Este código colocará el elemento en la segunda y tercera columnas y en la primera y segunda filas de la cuadrícula.
+This code will place the element in the second and third columns and in the first and second rows of the grid.
 
 ## Grid Areas
 
-CSS Grid Layout también te permite definir áreas con nombre en tu cuadrícula. Esto hace que sea más fácil colocar elementos en áreas específicas de la cuadrícula.
+CSS Grid Layout also allows you to define named areas in your grid. This makes it easier to place elements in specific areas of the grid.
 
 ```css
 .container {
@@ -55,11 +55,11 @@ CSS Grid Layout también te permite definir áreas con nombre en tu cuadrícula.
 }
 ```
 
-Este código define un grid container con áreas de encabezado, barra lateral, contenido y pie de página. El elemento con la clase `item` se colocará en el área de contenido de la cuadrícula.
+This code defines a grid container with header, sidebar, content, and footer areas. The element with the `item` class will be placed in the content area of the grid.
 
 ## Responsive Grids
 
-CSS Grid Layout es perfecto para crear diseños responsivos. Puedes utilizar las funciones `minmax()` y `auto-fill` para crear cuadrículas que se adapten a diferentes tamaños de pantalla.
+CSS Grid Layout is perfect for creating responsive layouts. You can use the `minmax()` and `auto-fill` functions to create grids that adapt to different screen sizes.
 
 ```css
 .container {
@@ -68,10 +68,10 @@ CSS Grid Layout es perfecto para crear diseños responsivos. Puedes utilizar las
 }
 ```
 
-Este código creará una cuadrícula con columnas que tienen al menos 200px de ancho y se expanden para llenar el espacio disponible. La palabra clave `auto-fill` permite que la cuadrícula cree automáticamente nuevas columnas según sea necesario.
+This code will create a grid with columns that are at least 200px wide and expand to fill the available space. The `auto-fill` keyword allows the grid to automatically create new columns as needed.
 
 ## Browser Support
 
-CSS Grid Layout es compatible con la mayoría de los navegadores modernos, incluidos Chrome, Firefox, Safari y Edge. Puedes utilizar CSS Grid Layout en tus proyectos web sin preocuparte por la compatibilidad con los navegadores.
+CSS Grid Layout is supported by most modern browsers, including Chrome, Firefox, Safari, and Edge. You can use CSS Grid Layout in your web projects without worrying about browser compatibility.
 
-¡Esperamos que esta guía te haya ayudado a comprender mejor CSS Grid Layout y cómo puedes utilizarlo para crear diseños de páginas web modernas y responsivas!
+We hope this guide has helped you better understand CSS Grid Layout and how you can use it to create modern and responsive web page layouts!

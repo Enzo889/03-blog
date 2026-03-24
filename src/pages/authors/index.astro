@@ -6,11 +6,15 @@ import { getCollection } from "astro:content";
 const authors = await getCollection("author");
 ---
 
-<MainLayout title="Authors List">
-  <h1>Know our authors</h1>
-  <p>Here you can find information about our authors.</p>
+<MainLayout title="Authors">
+  <section class="mb-8">
+    <h1 class="text-4xl font-bold tracking-tight">Our Authors</h1>
+    <p style="color: var(--color-text-muted);">
+      Meet the people behind the articles.
+    </p>
+  </section>
 
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {authors.map((author) => <AuthorCard author={author} />)}
   </div>
 </MainLayout>

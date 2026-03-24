@@ -7,19 +7,17 @@ const posts = Object.values(
 ) as any[];
 ---
 
-<MainLayout title="Home">
-  <!-- component -->
-  <a href={`/`}>Back to Homepage</a>
-  <section class="bg-white dark:bg-gray-900">
-    <div class="container px-6 py-10 mx-auto">
-      <h1
-        class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white"
-      >
-        From the blog
-      </h1>
-      <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-        {posts.map((post) => <BlogPost {...post} />)}
-      </div>
+<MainLayout title="Blog (File System)">
+  <section class="mb-8">
+    <h1 class="text-4xl font-bold tracking-tight">Blog</h1>
+    <p style="color: var(--color-text-muted);">
+      Articles loaded from the file system.
+    </p>
+  </section>
+
+  <section>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {posts.map((post) => <BlogPost {...post} />)}
     </div>
-  </section></MainLayout
->
+  </section>
+</MainLayout>

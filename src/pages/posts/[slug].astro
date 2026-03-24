@@ -24,48 +24,65 @@ const author = await getEntry("author", post.data.author.id);
 ---
 
 <BlogLayout title={PostData.title}>
-  <div class="text-md text-gray-400 mb-0 flex flex-row items-center mt-4">
+  <!-- Author & Date -->
+  <div class="flex items-center gap-4 mb-6 mt-2">
     {
       author && (
         <Image
           src={author.data.avatar}
-          width={60}
-          height={60}
-          class="rounded-full"
+          width={48}
+          height={48}
+          class="w-12 h-12 rounded-full object-cover"
           quality={"low"}
           alt={author.data.name}
         />
       )
     }
-    <div class="flex flex-col ml-3">
-      <a href={`/blog/${post.data.author.id}`}> {author?.data.name}</a>
-      <span class="text-xs text-gray-200"
-        >{Formatter.FormDate(PostData.date)}</span
-      >
+    <div>
+      <a href={`/blog/${post.data.author.id}`} class="font-medium text-sm">
+        {author?.data.name}
+      </a>
+      <p class="text-xs" style="color: var(--color-text-dim); margin:0;">
+        {Formatter.FormDate(PostData.date)}
+      </p>
     </div>
   </div>
+
+  <!-- Cover Image -->
   <Image
-    class="my-10 object-cover w-full h-[250px] rounded-md"
+    class="w-full h-[280px] object-cover rounded-lg mb-8"
     src={PostData.image}
-    width={600}
-    height={220}
+    width={800}
+    height={280}
     quality={"high"}
     alt={PostData.title}
   />
 
-  <h3>Table of contents</h3>
-  <ul>
-    {
-      headings.map((heading) => (
-        <li>
-          <a href={`#${heading.slug}`}>{heading.text}</a>
-        </li>
-      ))
-    }
-  </ul>
-  <Content />
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-2 mb-8">
+    {PostData.tags.map((tag) => <span class="tag">{tag}</span>)}
+  </div>
 
-  <div class="my-20">
-    <a href="#go-back" class="text-red-400 underline"> back to top</a>
+  <!-- Table of Contents -->
+  {headings.length > 0 && (
+    <div class="card p-5 mb-8" style="background-color: var(--color-surface);">
+      <h3 class="text-base font-semibold mb-3" style="margin-top:0;">Table of Contents</h3>
+      <ul class="list-none" style="padding:0; margin:0;">
+        {headings.map((heading) => (
+          <li style={`padding-left: ${(heading.depth - 1) * 1}rem; margin: 0.25rem 0;`}>
+            <a href={`#${heading.slug}`} class="text-sm">{heading.text}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <!-- Article Content -->
+  <article class="prose">
+    <Content />
+  </article>
+
+  <div class="mt-16 mb-8 text-center">
+    <a href="#go-back" class="btn-outline btn text-sm" style="text-decoration:none;">↑ Back to Top</a>
   </div>
 </BlogLayout>

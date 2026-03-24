@@ -1,51 +1,51 @@
 ---
-title: Empezando con Flutter
+title: Getting Started with Flutter
 date: 2024-08-10
-description: Aprende a desarrollar aplicaciones móviles con Flutter y Dart.
+description: Learn how to develop mobile applications with Flutter and Dart.
 author: john-smith
 image: "images/post-02.png"
 tags: [Flutter, Mobile Development, Dart]
 isDraft: false
 ---
 
-# Empezando con Flutter
+# Getting Started with Flutter
 
-Flutter es un kit de herramientas de IU para construir aplicaciones compiladas nativamente para móviles, web y escritorio desde un único código base.
+Flutter is a UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
 
-## Instalación de Flutter
+## Installing Flutter
 
-Para comenzar a desarrollar con Flutter, primero necesitas instalar el SDK de Flutter en tu sistema. Puedes seguir las instrucciones de instalación en la [documentación oficial de Flutter](https://flutter.dev/docs/get-started/install).
+To start developing with Flutter, you first need to install the Flutter SDK on your system. You can follow the installation instructions in the [official Flutter documentation](https://flutter.dev/docs/get-started/install).
 
 ```bash
 flutter doctor
 ```
 
-Este comando te ayudará a verificar si tienes todo lo necesario para comenzar a desarrollar con Flutter.
+This command will help you verify if you have everything needed to start developing with Flutter.
 
-## Creación de un Nuevo Proyecto
+## Creating a New Project
 
-Puedes crear un nuevo proyecto de Flutter utilizando el siguiente comando:
+You can create a new Flutter project using the following command:
 
 ```bash
 flutter create my_first_app
 cd my_first_app
 ```
 
-Esto creará un nuevo proyecto de Flutter en el directorio `my_first_app`.
+This will create a new Flutter project in the `my_first_app` directory.
 
-## Ejecución de la Aplicación
+## Running the Application
 
-Para ejecutar tu aplicación de Flutter, puedes utilizar el siguiente comando:
+To run your Flutter application, you can use the following command:
 
 ```bash
 flutter run
 ```
 
-Esto compilará y ejecutará tu aplicación en un emulador o dispositivo conectado. ¡Ahora puedes ver tu aplicación en acción!
+This will compile and run your application on an emulator or connected device. Now you can see your application in action!
 
-## Escribiendo tu Primera Aplicación
+## Writing Your First Application
 
-Puedes editar el archivo `lib/main.dart` para comenzar a escribir tu aplicación de Flutter. Aquí tienes un ejemplo de una aplicación de contador simple.
+You can edit the `lib/main.dart` file to start writing your Flutter application. Here's an example of a simple counter application.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -69,9 +69,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePage
-
-State extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {

@@ -1,5 +1,5 @@
 ---
-title: Comprendiendo los Hooks de React
+title: Understanding React Hooks
 date: 2023-06-15
 description: Learn how to use React Hooks to manage state and lifecycle in functional components.
 author: Alice Johnson
@@ -7,13 +7,13 @@ image: '/assets/images/post-03.png'
 tags: [React, JavaScript, Web Development]
 ---
 
-# Comprendiendo los Hooks de React
+# Understanding React Hooks
 
-Los Hooks de React son una característica que te permite usar el estado y otras características de React en componentes funcionales. Esto te permite escribir componentes más simples y reutilizables sin tener que convertirlos en clases.
+React Hooks are a feature that allows you to use state and other React features in functional components. This lets you write simpler and more reusable components without having to convert them into classes.
 
 ## useState Hook
 
-El `useState` hook te permite añadir estado a tus componentes funcionales.
+The `useState` hook allows you to add state to your functional components.
 
 ```javascript
 import React, { useState } from 'react';
@@ -32,7 +32,7 @@ function Counter() {
 
 ## useEffect Hook
 
-El `useEffect` hook te permite realizar efectos secundarios en tus componentes funcionales, como acceder a datos externos o modificar el DOM.
+The `useEffect` hook allows you to perform side effects in your functional components, such as fetching external data or modifying the DOM.
 
 ```javascript
 import React, { useState, useEffect } from 'react';
@@ -55,7 +55,7 @@ function Example() {
 
 ## Custom Hooks
 
-Puedes crear tus propios hooks personalizados para reutilizar lógica en tus componentes.
+You can create your own custom hooks to reuse logic across your components.
 
 ```javascript
 import { useState } from 'react';
@@ -71,7 +71,7 @@ function useCounter(initialCount) {
 }
 ```
 
-Luego puedes usar tu hook personalizado en tus componentes.
+Then you can use your custom hook in your components.
 
 ```javascript
 import React from 'react';
@@ -89,4 +89,4 @@ function Counter() {
 }
 ```
 
-Los Hooks de React son una poderosa característica que te permite escribir componentes más limpios y reutilizables en React. ¡Empieza a usarlos en tus proyectos hoy mismo!
+React Hooks are a powerful feature that allows you to write cleaner and more reusable components in React. Start using them in your projects today!
