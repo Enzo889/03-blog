@@ -3,11 +3,18 @@ import { getCollection } from "astro:content";
 import TypedBlogPost from "../components/TypedBlogPost.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
-const blogPosts = await getCollection("blog");
+const blogPosts = await getCollection(
+  "blog",
+  (post) => post.data.isDraft === false,
+);
 ---
 
 <MainLayout title="Home">
-  <a href="/blog-file-system">Blog File System</a>
+  <nav class="flex flex-col gap-3">
+    <a href="/blog-file-system">Blog File System</a>
+    <a href="/blog/1">Blog Paginate with collections</a>
+    <a href="/authors">Authors List</a>
+  </nav>
   <!-- component -->
   <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
