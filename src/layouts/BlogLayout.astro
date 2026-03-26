@@ -13,6 +13,12 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="DevBlog"
+      href={new URL("rss.xml", Astro.site)}
+    />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
@@ -20,8 +26,14 @@ const { title } = Astro.props;
   </head>
   <body>
     <header class="site-header">
-      <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" class="text-xl font-bold text-white tracking-tight" style="text-decoration:none;">
+      <div
+        class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <a
+          href="/"
+          class="text-xl font-bold text-white tracking-tight"
+          style="text-decoration:none;"
+        >
           Dev<span style="color: var(--color-accent);">Blog</span>
         </a>
         <nav class="flex items-center gap-1">
@@ -33,12 +45,19 @@ const { title } = Astro.props;
     </header>
 
     <main class="max-w-4xl mx-auto px-6 py-10">
-      <a href="/" id="go-back" class="btn-outline btn text-sm mb-6" style="text-decoration:none;">← Back to Home</a>
+      <a
+        href="/"
+        id="go-back"
+        class="btn-outline btn text-sm mb-6"
+        style="text-decoration:none;">← Back to Home</a
+      >
       <slot />
     </main>
 
     <footer class="site-footer max-w-4xl mx-auto px-6">
-      <p style="margin:0;">© {new Date().getFullYear()} DevBlog. Built with Astro.</p>
+      <p style="margin:0;">
+        © {new Date().getFullYear()} DevBlog. Built with Astro.
+      </p>
     </footer>
   </body>
 </html>
