@@ -11,6 +11,7 @@ A modern tech blog built with [Astro](https://astro.build/) and [Tailwind CSS v4
 - **Tag System** — Posts categorized with tag pills
 - **Table of Contents** — Auto-generated on post detail pages
 - **View Transitions** — Smooth page transitions via Astro Client Router
+- **RSS Feed** — Full-content RSS 2.0 feed with media extensions, sanitized HTML, and a custom XSL stylesheet
 - **Responsive Design** — Mobile-first layout with Tailwind utility classes
 - **Flat Design** — Clean aesthetic with Inter font, flat cards, and a navy/slate color palette
 
@@ -32,6 +33,7 @@ src/
 │   └── BlogLayoutFileSystem.astro
 ├── pages/
 │   ├── index.astro            # Home page
+│   ├── rss.xml.ts             # RSS 2.0 feed endpoint
 │   ├── blog-file-system.astro # File-system blog listing
 │   ├── authors/index.astro    # Authors listing
 │   ├── blog/[page].astro      # Paginated blog
@@ -41,6 +43,9 @@ src/
 │   └── global.css             # Design system (flat design tokens)
 └── utils/
     └── formatter.ts           # Date formatter (en-US)
+public/
+└── styles/
+    └── rss.xsl                # XSL stylesheet for RSS feed
 ```
 
 ## 🧰 Tech Stack
@@ -50,6 +55,9 @@ src/
 | Astro            | v6      |
 | Tailwind CSS     | v4      |
 | MDX              | v5      |
+| @astrojs/rss     | —       |
+| markdown-it      | —       |
+| sanitize-html    | —       |
 | Node.js          | ≥22.12  |
 
 ## 🧞 Commands
